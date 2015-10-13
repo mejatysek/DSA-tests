@@ -42,7 +42,7 @@ public class Homework1Test {
         Mergesort h = new Homework1();
         Random rn = new Random();
         int count = Math.abs(rn.nextInt() % 1000000);
-        count = 100000000;
+        // count = 100000000;
         System.out.println(count);
         int[] array = new int[count];
         for (int i = 0; i < count; i++){
