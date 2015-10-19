@@ -13,12 +13,16 @@ public class Homework1Test {
     public void testEmptyArray() {
         Mergesort h = new Homework1();
         int[] i = new int[0];
+        assertArrayEquals(i,h.getFirstHalfOf(i));
+        assertArrayEquals(i,h.getSecondHalfOf(i));
         assertArrayEquals(i, h.mergesort(i));
     }
     @Test
     public void testOneElementArray() {
         Mergesort h = new Homework1();
         int[] i = {1};
+        assertArrayEquals(i, h.getFirstHalfOf(i));
+        assertArrayEquals(new int[0], h.getSecondHalfOf(i));
         assertArrayEquals(i, h.mergesort(i));
     }
     @Test
@@ -26,14 +30,23 @@ public class Homework1Test {
         Mergesort h = new Homework1();
         int[] i = {2,1};
         int [] result = h.mergesort(i);
+        int [] f = {2};
+        int [] s = {1};
+        assertArrayEquals(f, h.getFirstHalfOf(i));
+        assertArrayEquals(s, h.getSecondHalfOf(i));
         Arrays.sort(i);
         assertArrayEquals(i, result);
+
     }
     @Test
     public void testThreeElementArray() {
         Mergesort h = new Homework1();
         int[] i = {2,1,9};
         int [] result = h.mergesort(i);
+        int [] f = {2,1};
+        int [] s = {9};
+        assertArrayEquals(f, h.getFirstHalfOf(i));
+        assertArrayEquals(s, h.getSecondHalfOf(i));
         Arrays.sort(i);
         assertArrayEquals(i, result);
     }
@@ -42,8 +55,8 @@ public class Homework1Test {
         Mergesort h = new Homework1();
         Random rn = new Random();
         int count = Math.abs(rn.nextInt() % 1000000);
-        // count = 100000000;
-        System.out.println(count);
+//        count = 100000000;
+//        System.out.println(count);
         int[] array = new int[count];
         for (int i = 0; i < count; i++){
             array[i] = rn.nextInt();
